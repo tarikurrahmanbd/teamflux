@@ -1,0 +1,889 @@
+:root {
+    --cyan: #00f2ff;
+    --dark: #010103;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+body { background: var(--dark); color: white; font-family: 'Rajdhani', sans-serif; overflow-x: hidden; }
+
+/* Bug Fix: Particles Z-Index */
+#particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* Navbar Fix */
+.navbar { padding: 20px 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
+.nav-flex { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: 'Orbitron'; font-weight: bold; font-size: 1.4rem; letter-spacing: 3px; }
+.logo span { color: var(--cyan); text-shadow: 0 0 10px var(--cyan); }
+.nav-links { display: flex; list-style: none; gap: 25px; }
+.nav-links a { text-decoration: none; color: #888; font-size: 0.8rem; text-transform: uppercase; transition: 0.3s; }
+.nav-links a:hover { color: var(--cyan); }
+
+.status-box { color: #0f0; font-size: 0.7rem; font-weight: bold; display: flex; align-items: center; gap: 5px; }
+.pulse { width: 7px; height: 7px; background: #0f0; border-radius: 50%; display: inline-block; animation: blink 1.5s infinite; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+/* Hero Section Fix */
+.hero { height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; }
+.sys-msg { color: var(--cyan); font-family: 'Orbitron'; font-size: 0.7rem; letter-spacing: 3px; margin-bottom: 15px; }
+h1 { font-family: 'Orbitron'; font-size: 3.5rem; letter-spacing: 8px; margin-bottom: 15px; }
+#typed { color: var(--cyan); text-shadow: 0 0 15px var(--cyan); }
+.hero-sub { color: #aaa; font-size: 1.1rem; margin-bottom: 30px; }
+
+.btn-neon {
+    padding: 12px 35px; border: 1px solid var(--cyan); color: var(--cyan);
+    text-decoration: none; font-family: 'Orbitron'; font-size: 0.8rem;
+    transition: 0.4s; border-radius: 4px;
+}
+.btn-neon:hover { background: var(--cyan); color: #000; box-shadow: 0 0 25px var(--cyan); }
+
+/* Project Section Fix */
+.section { padding: 80px 0; }
+.section-title { font-family: 'Orbitron'; text-align: center; margin-bottom: 50px; color: var(--cyan); letter-spacing: 4px; }
+
+.project-featured {
+    background: var(--glass); border: 1px solid var(--border); border-radius: 20px;
+    padding: 40px; display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px;
+    align-items: center; margin-bottom: 30px;
+}
+.badge { background: rgba(0, 242, 255, 0.1); color: var(--cyan); padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; }
+.tech-stack { margin: 15px 0; display: flex; gap: 10px; }
+.tech-stack span { background: rgba(255,255,255,0.05); padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; color: #ccc; }
+.project-link { color: white; text-decoration: none; border-bottom: 1px solid var(--cyan); padding-bottom: 3px; font-size: 0.9rem; }
+.p-visual { font-size: 6rem; color: rgba(255,255,255,0.02); text-align: center; }
+
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.card-mini { background: var(--glass); border: 1px solid var(--border); padding: 30px; border-radius: 15px; text-align: center; transition: 0.3s; }
+.card-mini:hover { border-color: var(--cyan); transform: translateY(-5px); }
+.card-mini i { font-size: 2rem; color: var(--cyan); margin-bottom: 15px; }
+
+/* Team Section Fix */
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.member-card { background: var(--glass); border: 1px solid var(--border); padding: 40px; border-radius: 20px; text-align: center; }
+.member-icon { font-size: 2.5rem; color: var(--cyan); margin-bottom: 15px; }
+
+footer { text-align: center; padding: 40px; border-top: 1px solid var(--border); color: #444; font-size: 0.8rem; }
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    .project-featured { grid-template-columns: 1fr; text-align: center; }
+    .p-visual { display: none; }
+    .nav-links { display: none; } /* Mobile menu can be added later */
+}
+
+/* Idea Incubator Styles */
+.section-subtitle {
+    text-align: center;
+    color: var(--cyan);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    margin-top: -40px;
+    margin-bottom: 50px;
+    opacity: 0.6;
+}
+
+.idea-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.idea-card {
+    background: linear-gradient(145deg, rgba(0, 242, 255, 0.05), rgba(0, 0, 0, 0.2));
+    border: 1px solid var(--border);
+    padding: 30px;
+    border-radius: 15px;
+    transition: 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.idea-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--cyan);
+    transition: 0.4s;
+}
+
+.idea-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 242, 255, 0.3);
+}
+
+.idea-card:hover::before {
+    height: 100%;
+}
+
+.idea-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.idea-header i {
+    font-size: 1.8rem;
+    color: var(--cyan);
+}
+
+.idea-tag {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 3px 10px;
+    border-radius: 10px;
+    color: #888;
+}
+
+.idea-card h4 {
+    font-family: 'Orbitron';
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.idea-card p {
+    font-size: 0.9rem;
+    color: #aaa;
+    line-height: 1.6;
+}
+
+/* Submit Idea Box */
+.submit-idea {
+    text-align: center;
+    padding: 30px;
+    background: var(--glass);
+    border-radius: 15px;
+    border: 1px dashed var(--border);
+}
+
+.submit-idea p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.submit-idea span {
+    color: var(--cyan);
+    font-weight: bold;
+}
+
+.btn-ghost-small {
+    padding: 8px 20px;
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-family: 'Orbitron';
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn-ghost-small:hover {
+    background: var(--cyan);
+    color: black;
+}
+
+/* Achievements Section Styles */
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.milestone-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    padding: 30px 20px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    transition: 0.4s;
+}
+
+.milestone-card:hover {
+    background: rgba(0, 242, 255, 0.05);
+    border-color: var(--cyan);
+    transform: scale(1.05);
+}
+
+.m-year {
+    font-family: 'Orbitron';
+    font-size: 0.8rem;
+    color: var(--cyan);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.m-icon {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.milestone-card h4 {
+    font-family: 'Orbitron';
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: var(--cyan);
+}
+
+.milestone-card p {
+    font-size: 0.8rem;
+    color: #888;
+    line-height: 1.4;
+}
+
+/* Highlighted Milestone */
+.milestone-card.highlight {
+    border: 1px solid var(--cyan);
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+}
+
+.milestone-card.highlight .m-icon {
+    color: var(--cyan);
+    text-shadow: 0 0 15px var(--cyan);
+}
+
+/* Expertise Grid Styles */
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.expert-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(0, 242, 255, 0.02));
+    border: 1px solid var(--border);
+    padding: 40px 25px;
+    border-radius: 20px;
+    position: relative;
+    transition: 0.4s ease;
+    text-align: center;
+}
+
+.expert-card:hover {
+    border-color: var(--cyan);
+    background: rgba(0, 242, 255, 0.05);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 242, 255, 0.1);
+}
+
+.unit-tag {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-family: 'Orbitron';
+    font-size: 0.6rem;
+    color: var(--cyan);
+    opacity: 0.5;
+}
+
+.unit-icon {
+    font-size: 3rem;
+    color: var(--cyan);
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(0, 242, 255, 0.3));
+}
+
+.expert-card h3 {
+    font-family: 'Orbitron';
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.expert-card p {
+    font-size: 0.85rem;
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    list-style: none;
+}
+
+.skill-tags li {
+    background: rgba(0, 242, 255, 0.1);
+    color: var(--cyan);
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Tablet & Mobile Tweaks */
+@media (max-width: 768px) {
+    .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Contact Form */
+.contact-box {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+}
+
+.cyber-form { display: flex; flex-direction: column; gap: 15px; }
+
+.input-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+
+.cyber-form input, .cyber-form textarea {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border);
+    padding: 12px;
+    color: white;
+    font-family: 'Rajdhani';
+    border-radius: 5px;
+    outline: none;
+}
+
+.cyber-form input:focus, .cyber-form textarea:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
+}
+
+.contact-info p { margin-bottom: 20px; color: #aaa; font-size: 0.9rem; }
+.contact-info i { color: var(--cyan); margin-right: 10px; }
+
+.social-icons { display: flex; gap: 15px; margin-top: 20px; }
+.social-icons a { color: white; font-size: 1.2rem; transition: 0.3s; }
+.social-icons a:hover { color: var(--cyan); transform: translateY(-3px); }
+
+/* Mobile Responsive Contact Form */
+@media (max-width: 768px) {
+    .contact-box { grid-template-columns: 1fr; }
+    .input-group { grid-template-columns: 1fr; }
+}
+
+/* Project Page Specific Styles */
+.project-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.sys-path {
+    color: var(--cyan);
+    font-family: 'Orbitron';
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    opacity: 0.6;
+}
+
+.project-archive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.archive-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    padding: 35px 25px;
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.archive-card:hover {
+    background: rgba(0, 242, 255, 0.04);
+    border-color: var(--cyan);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 242, 255, 0.1);
+}
+
+.archive-card i {
+    font-size: 2.5rem;
+    color: var(--cyan);
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.archive-card h3 {
+    font-family: 'Orbitron';
+    font-size: 1rem;
+    margin-bottom: 12px;
+    color: white;
+}
+
+.archive-card p {
+    font-size: 0.85rem;
+    color: #888;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.card-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--cyan);
+    color: black;
+    font-size: 0.6rem;
+    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.archive-card.featured {
+    border: 1px solid rgba(0, 242, 255, 0.4);
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
+}
+
+.tech-stack {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tech-stack span {
+    font-size: 0.65rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 3px 10px;
+    border-radius: 15px;
+    color: #ccc;
+    border: 1px solid var(--border);
+}
+
+/* Tab/Mobile Responsive for Archive */
+@media (max-width: 768px) {
+    .project-archive-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Global Background Fix */
+body.project-page {
+    background: #010103; /* Deep space black */
+    background-image: radial-gradient(circle at top right, rgba(0, 242, 255, 0.03), transparent),
+                      radial-gradient(circle at bottom left, rgba(0, 242, 255, 0.02), transparent);
+    background-attachment: fixed;
+}
+
+/* Header Alignment */
+.project-header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding-top: 40px;
+}
+
+/* Card Alignment for both pages */
+.project-archive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Featured Projects Layout Fix */
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* কন্টেন্টকে পুরো জায়গায় ছড়িয়ে দেবে */
+    gap: 30px;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.f-card {
+    background: rgba(255, 255, 255, 0.03); /* হালকা গ্লাস ব্যাকগ্রাউন্ড */
+    border: 1px solid rgba(0, 242, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column; /* আইকন এবং টেক্সট ওপর-নিচে থাকবে */
+    align-items: center; /* সবকিছু মাঝে থাকবে */
+    text-align: center;
+    transition: 0.4s ease;
+}
+
+.f-card:hover {
+    border-color: var(--cyan);
+    background: rgba(0, 242, 255, 0.05);
+    transform: translateY(-5px);
+}
+
+.f-icon {
+    font-size: 2.5rem;
+    color: var(--cyan);
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+}
+
+.f-content h4 {
+    font-family: 'Orbitron';
+    margin-bottom: 10px;
+    color: white;
+}
+
+.f-content p {
+    font-size: 0.85rem;
+    color: #888;
+    line-height: 1.5;
+}
+
+/* Button & Link Styles */
+.live-btn {
+    color: var(--cyan);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
+    border-bottom: 1px solid var(--cyan);
+}
+
+.view-more-wrap {
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* Unique & Simple Flux Button */
+.view-more-wrap {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.flux-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 30px;
+    color: #00f2ff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-decoration: none;
+    border: 1px solid rgba(0, 242, 255, 0.2); /* হালকা বর্ডার */
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+}
+
+/* কোণাগুলোতে ছোট ছোট নিওন মার্ক */
+.flux-btn::before, .flux-btn::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #00f2ff;
+    transition: 0.4s;
+}
+
+/* উপরের বাম কোণা */
+.flux-btn::before {
+    top: -2px;
+    left: -2px;
+    border-right: none;
+    border-bottom: none;
+}
+
+/* নিচের ডান কোণা */
+.flux-btn::after {
+    bottom: -2px;
+    right: -2px;
+    border-left: none;
+    border-top: none;
+}
+
+/* Hover Effect */
+.flux-btn:hover {
+    background: rgba(0, 242, 255, 0.05);
+    border-color: rgba(0, 242, 255, 0.6);
+    letter-spacing: 5px; /* লেখাটি একটু ছড়িয়ে যাবে */
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
+}
+
+.flux-btn:hover::before, .flux-btn:hover::after {
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+}
+
+.flux-btn i {
+    font-size: 0.7rem;
+    transition: 0.3s;
+}
+
+.flux-btn:hover i {
+    transform: translateX(5px);
+}
+
+/* Core Architects Unique Style */
+.architects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.arch-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(0, 242, 255, 0.1);
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    border-radius: 5px; /* Minimalist Square Look */
+    transition: 0.4s;
+}
+
+.arch-card:hover {
+    background: rgba(0, 242, 255, 0.05);
+    border-color: var(--cyan);
+    transform: translateY(-10px);
+}
+
+.arch-img-box {
+    font-size: 3rem;
+    color: var(--cyan);
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
+}
+
+.arch-card h3 { font-family: 'Orbitron'; font-size: 1.1rem; margin-bottom: 5px; }
+.arch-card p { font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 2px; }
+
+/* Establish Connection Unique Style */
+.cyber-contact-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 50px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.connection-form { display: flex; flex-direction: column; gap: 30px; }
+
+.input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.input-box { position: relative; width: 100%; }
+
+.input-box input, .input-box textarea {
+    width: 100%;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-box label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: #555;
+    pointer-events: none;
+    transition: 0.3s;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+.input-box input:focus ~ label,
+.input-box input:not(:placeholder-shown) ~ label,
+.input-box textarea:focus ~ label,
+.input-box textarea:not(:placeholder-shown) ~ label {
+    top: -15px;
+    color: var(--cyan);
+    font-size: 0.6rem;
+}
+
+.input-box input:focus, .input-box textarea:focus {
+    border-bottom: 1px solid var(--cyan);
+}
+
+.connection-meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    padding-left: 40px;
+}
+
+.meta-item { display: flex; align-items: center; gap: 15px; color: #aaa; font-size: 0.85rem; }
+.meta-item i { color: var(--cyan); font-size: 1.2rem; }
+
+.meta-social { display: flex; gap: 20px; margin-top: 20px; }
+.meta-social a { color: white; font-size: 1.3rem; transition: 0.3s; }
+.meta-social a:hover { color: var(--cyan); transform: translateY(-3px); }
+
+/* Responsive */
+@media (max-width: 850px) {
+    .cyber-contact-container { grid-template-columns: 1fr; padding: 30px; }
+    .input-row { grid-template-columns: 1fr; }
+    .connection-meta { border-left: none; padding-left: 0; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+}
+
+/* Core Architects Layout Fix */
+.architects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* কার্ডগুলোকে ছড়িয়ে দেবে */
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.arch-card {
+    background: rgba(255, 255, 255, 0.03); /* হালকা গ্লাস ব্যাকগ্রাউন্ড */
+    border: 1px solid rgba(0, 242, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    transition: 0.4s ease;
+    overflow: hidden; /* ছবি যেন ফ্রেমের বাইরে না যায় */
+}
+
+.arch-card:hover {
+    border-color: var(--cyan);
+    background: rgba(0, 242, 255, 0.05);
+    transform: translateY(-5px);
+}
+
+.arch-photo-wrapper {
+    width: 150px; /* ছবির নির্দিষ্ট আকার */
+    height: 150px;
+    border-radius: 50%; /* পুরোপুরি গোল করা */
+    margin: 0 auto 20px;
+    padding: 5px;
+    border: 2px solid rgba(0, 242, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+    overflow: hidden; /* ছবি গোল ফ্রেমের বাইরে যাবে না */
+}
+
+.arch-photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ছবিকে চ্যাপ্টা না করে ফিট করবে */
+    border-radius: 50%;
+}
+
+.arch-info h3 {
+    font-family: 'Orbitron';
+    margin-bottom: 5px;
+    color: white;
+}
+
+.arch-info p {
+    font-size: 0.85rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* সকল সেকশনের হেডলাইন ফিক্স */
+.title-main {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 60px; /* উপরের সেকশন থেকে দূরত্ব */
+    margin-bottom: 5px; /* সাব-টাইটেল থেকে দূরত্ব বাড়ানো হলো */
+    position: relative;
+    z-index: 5; /* জড-ইনডেক্স বাড়ানো হলো যেন উপরে থাকে */
+}
+
+.section-subtitle {
+    display: block;
+    text-align: center;
+    margin-top: 0; 
+    margin-bottom: 15px; /* সাব-টাইটেল থেকে নিচের কার্ডগুলোর গ্যাপ বাড়াও */
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    opacity: 0.8;
+    position: relative;
+    z-index: 4;
+}
+
+/* হিরো সেকশন এবং পরবর্তী সেকশনের গ্যাপ */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* কন্টেন্ট সেন্টারে রাখার জন্য */
+    padding-bottom: 100px; 
+    margin-bottom: 50px;
+}
+
+/* সেকশনগুলোর মধ্যকার দূরত্ব */
+section {
+    padding: 120px 0; /* উপরে নিচে পর্যাপ্ত স্পেস */
+    margin-bottom: 100px; /* এক সেকশন থেকে অন্য সেকশনের বড় গ্যাপ */
+    clear: both; /* ফ্লোটিং কোনো সমস্যা থাকলে তা ফিক্স করবে */
+    position: relative;
+}
+
+/* কার্ড গ্রিডের জন্য ওপরের মার্জিন নিশ্চিত করা */
+.capabilities-grid, .architects-grid, .milestones-grid {
+    margin-top: 40px;
+    display: grid;
+    gap: 30px;
+}
+
+/* View All Ideas Button Style */
+/* Idea Incubator বাটন এবং নিচের বক্সের দূরত্ব ঠিক করার জন্য */
+.view-more-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;    /* বাটনটিকে আইডিয়া কার্ড থেকে একটু নিচে নামাবে */
+    margin-bottom: 60px; /* নিচের 'Submit Your Concept' বক্স থেকে বাটনটিকে উপরে তুলবে */
+}
+
+.view-all-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 1px solid var(--cyan); /* তোমার সাইটের সায়ান কালার */
+    color: var(--cyan);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-decoration: none;
+    transition: 0.3s all ease;
+    background: transparent;
+    border-radius: 4px;
+    position: relative;
+}
+
+.view-all-btn:hover {
+    background: rgba(0, 242, 255, 0.1);
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.view-all-btn i {
+    font-size: 0.7rem;
+    margin-left: 8px;
+    transition: 0.3s;
+}
+
+.view-all-btn:hover i {
+    transform: translateX(5px);
+}
